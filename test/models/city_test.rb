@@ -15,4 +15,4 @@ class CityTest < ActiveSupport::TestCase
     end
   end
   
-
+end
