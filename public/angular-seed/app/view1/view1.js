@@ -9,6 +9,16 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', ['$scope',function($scope) {
-  $scope.students = [{name: "bob", surname: "dylan"},{name: "lapoint", surname: "toto"}]
+.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+  $scope.students = []
+  
+  $http({
+    method: 'GET',
+    url: '/students.json'
+  }).then(function successCallback(response) {
+      $scope.students = response.data
+    }, function errorCallback(response) {
+      //document.write("Not Found"); 
+  });
+  
 }]);
