@@ -6,13 +6,4 @@ class CityTest < ActiveSupport::TestCase
     @cityWrong = cities(:two)
   end
   
-  test "should create city" do
-    VCR.use_cassette("nominatim") do
-      assert_difference('City.count') do
-        city = City.new  name: @city.name
-        city.save
-      end
-    end
-  end
-  
 end
